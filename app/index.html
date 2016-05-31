@@ -1,43 +1,149 @@
 <!DOCTYPE html>
-<!--[if lt IE 7]>      <html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html lang="en" ng-app="myApp" class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html lang="en" ng-app="myApp" class="no-js"> <!--<![endif]-->
+<!--[if lt IE 7]>      <html lang="en" ng-app="artleafgallery" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en" ng-app="artleafgallery" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" ng-app="artleafgallery" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html lang="en" ng-app="artleafgallery" class="no-js"> <!--<![endif]-->
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>My AngularJS App</title>
-  <meta name="description" content="">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/normalize.css">
-  <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/main.css">
-  <link rel="stylesheet" href="app.css">
-  <script src="bower_components/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js"></script>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Artleafgallery</title>
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/normalize.css">
+	<link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/main.css">
+	<link href="css/font-awesome.min.css" rel="stylesheet">
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+	<link href="css/fonts.css" rel="stylesheet">
+	<link href="css/style.css" rel="stylesheet">
+	<link href="css/slider.css" rel="stylesheet">
+
+	<script src="bower_components/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js"></script>
 </head>
 <body>
-  <ul class="menu">
-    <li><a href="#/view1">view1</a></li>
-    <li><a href="#/view2">view2</a></li>
-  </ul>
+	<header>
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-5">
+				<ul class="social_icons custom_ul">
+					<li><a href="#"><i class="fa fa-facebook"></i></a></li>          
+					<li><a href="#"><i class="fa fa-linkedin"></i></a></li> 
+					<li><a href="#"><i class="fa fa-twitter"></i></a></li>
+				</ul>
+			</div>
+			<div class="col-sm-4 norightpadding">
+				<span class="search_container">
+					<input type="text" name="search_text" placeholder="Search..."/>
+					<i class="fa fa-search"></i>
+				</span>
+			</div>
+			<div class="col-sm-3 noleftpadding">
+				<ul class="custom_ul account_settings">
+					 <li><a href="#"><i class="fa fa-user"></i> Login</a></li>
+					 <li><a href="#"><i class="fa fa-sign-in"></i> Register</a></li>
+					 <li><a href="#"><i class="fa fa-shopping-cart"></i> MyCart</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+		
 
-  <!--[if lt IE 7]>
-      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-  <![endif]-->
 
-  <div ng-view></div>
+	</header>
+	<section ng-controller="ProductsController">
+		<section class="menu_logo_section">
+			<div class="container menu_logo_container clear_fix">
+				<div class="row">
+					<div class="col-sm-3 borderright">
+						<img src="images/logo.png" class="leftmargin-xl"/>
+					</div>
+					<div class="col-sm-9">
+						<ul class="custom_ul topmargin-lg nopadding">
+							<li class="rightpadding-sm"> <a href="#"> Home</a></li>
+							<li class="rightpadding-sm" ng-repeat="Product in menu_products">
+								<a href="#"> {{Product.name}}</a>
+							</li>
+							<li class="rightpadding-sm"> <a href="#"> Frame</a></li>
+							<li> <a href="#"> Contact Us</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</section>
+		<div class="banner">
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-1">
+						<img src="images/button-previous.png" class="navigation_img" />
+					</div>
+					<div class="col-sm-10 ">
+						<!-- <div class="banner_img">
+							<img src="images/banner_img.png" width="945px"/>
+							<div class="banner_art_desc">
+								<h1> Digital Art </h1>
+								<p> Lorem Ipsum is simply dummy text of the printing and typesetting industry. </p>
+							</div>
+						</div> -->
+						<slider rotate="8000" describe="true"><!-- peaslider -->
 
-  <div>Angular seed app: v<span app-version></span></div>
+							<slide-content>
+								<img ng-src="" class="is-hidden-img"/>
+								<pea-desc ng-bind="describe" class="is-hidden-img"></pea-desc>
+							</slide-content>
 
-  <!-- In production use:
-  <script src="//ajax.googleapis.com/ajax/libs/angularjs/x.x.x/angular.min.js"></script>
-  -->
-  <script src="bower_components/angular/angular.js"></script>
-  <script src="bower_components/angular-route/angular-route.js"></script>
-  <script src="app.js"></script>
-  <script src="view1/view1.js"></script>
-  <script src="view2/view2.js"></script>
-  <script src="components/version/version.js"></script>
-  <script src="components/version/version-directive.js"></script>
-  <script src="components/version/interpolate-filter.js"></script>
+							<slide-images>
+								<slide-img ng-repeat="item in images" img-desc="{{item.descrition}}" img-src="{{item.image.path}}" repeat-end="onEnd();">
+								</slide-img>
+							</slide-images>
+
+							<button class="pea-prev" ng-click="sliderPrev();"></Button>
+							<button class="pea-next" ng-click="sliderNext();"></Button>
+
+						</slider>
+					</div>
+					<div class="col-sm-1">
+						<img src="images/button-next.png" class="navigation_img" />
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="container welcome_text bottommargin-sm">
+			<h1> Welcome to Artleaf </h1>
+			<p class="topmargin-lg bottommargin-lg">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+			<img src="images/cont_divider.png" />
+
+		</div>
+		<div class="container product_list">
+		
+			<div class="row bottommargin-sm" ng-repeat="slice in product_slice">
+				<div class="col-sm-4" ng-repeat="product in slice">
+					<div class="white-background bottompadding-xs">
+						<div class="name_desc">
+							<h1> {{product.name}} </h1>
+							<p> {{product.description}} </p>
+						</div>
+						<img class="bottommargin-xs" src="images/mural_img.jpg" />
+						<p align="right"> Read more ...<i class="fa fa-external-link"></i></p>
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</section>
+	<footer></footer>
+
+
+	<!-- In production use:
+	<script src="//ajax.googleapis.com/ajax/libs/angularjs/x.x.x/angular.min.js"></script>
+	-->
+	<script src="bower_components/angular/angular.js"></script>
+	<script src="bower_components/angular-route/angular-route.js"></script>
+	<script src="app.js"></script>
+	<script src="controllers.js"></script>
+	<script src="directives.js"></script>
+	<script src="view1/view1.js"></script>
+	<script src="view2/view2.js"></script>
+	<script src="components/version/version.js"></script>
+	<script src="components/version/version-directive.js"></script>
+	<script src="components/version/interpolate-filter.js"></script>
 </body>
 </html>

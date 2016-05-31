@@ -1,0 +1,45 @@
+
+body{font-family:'HelveticaNeue-Thin';}
+
+
+/*Helvetica Font
+=================================================*/
+@font-face {
+    font-family: 'helvetica_neueregular';
+    src: url('../fonts/helveticaneue-thin-webfont.woff2') format('woff2'),
+         url('../fonts/helveticaneue-thin-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+/*@font-face {
+	font-family:'HelveticaNeue-Thin';
+	src: url('../fonts/HelveticaNeue-Thin_gdi.eot');
+	src: url('../fonts/HelveticaNeue-Thin_gdi.eot?#iefix') format('embedded-opentype'),
+		url('../fonts/HelveticaNeue-Thin_gdi.woff') format('woff'),
+		url('../fonts/HelveticaNeue-Thin_gdi.ttf') format('truetype'),
+		url('../fonts/HelveticaNeue-Thin_gdi.svg#HelveticaNeue-Thin') format('svg');
+	font-weight: 100;
+	font-style: normal;
+	font-stretch: normal;
+	unicode-range: U+0020-2212;
+}*/
+
+
+/*Heading Font
+=================================================*/
+@font-face {
+    font-family: 'baskerville_old_faceregular';
+    src: url('../fonts/baskvill-webfont.woff2') format('woff2'),
+         url('../fonts/baskvill-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+h1{font-family: 'baskerville_old_faceregular';}
+
+p{font-family: 'helvetica_neueregular';}
