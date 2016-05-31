@@ -190,5 +190,9 @@ a {
     padding: 10px 20px;t;
 }
 .banner_img {
-	margin-top: 50px;
+	margin-top: 30px;
+}
+.vcenter {
+    display: inline-block;
+    vertical-align: middle;
 }

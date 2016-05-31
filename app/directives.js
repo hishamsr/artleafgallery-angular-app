@@ -15,8 +15,8 @@ app.directive("slider", ['$timeout', function ($timeout) {
             //vars        // fadein     // fadeout
             var config = {'delay': 100, 'duration': 1200 };
             var elemSlider = elem;
-            var elemSlider = elem.find('slide-content');
-            var elemImgSrc = elem.find('img');
+            var elemSliderContent = elem.find('slide-content');
+            var elemImgSrc = elemSliderContent.find('img');
             var elemPeaDesc = elem.find('pea-desc');
             var elemSlideSrc = elem.find('slide-img');
             var vectorSlide = elemSlideSrc.length;
@@ -54,7 +54,7 @@ app.directive("slider", ['$timeout', function ($timeout) {
                 var attrImgDesc = elemSlideSrc.eq(num).attr('img-desc');
                 var timeFadeout = $timeout(function(){
                                       //add class
-                                      elemSlider.addClass('fadeout');
+                                      elemSliderContent.addClass('fadeout');
                                       elemSlider.addClass('pea-slider-loading');
                                       //Cancela Timout
                                       $timeout.cancel(timeFadeout);
@@ -65,9 +65,9 @@ app.directive("slider", ['$timeout', function ($timeout) {
                                       scope.describe = attrImgDesc;
                                       elemImgSrc.bind('load', function() {
                                                      elemImgSrc.removeClass('is-hidden-img');
-                                                     elemSlider.removeClass('fadeout');
+                                                     elemSliderContent.removeClass('fadeout');
                                                      elemSlider.removeClass('pea-slider-loading');
-                                                     descricaoVerify(describeActive, attrImgDesc);
+                                                     descriptionVerify(describeActive, attrImgDesc);
                                                      $timeout.cancel(timeFadein);
                                                   });
                                   
@@ -91,7 +91,7 @@ app.directive("slider", ['$timeout', function ($timeout) {
             elemSlider.bind('mouseout', function() {
                  rotateVerify();
             });
-            function descricaoVerify(active, desc){
+            function descriptionVerify(active, desc){
 
                 if (active === "true" && desc != "") {
 

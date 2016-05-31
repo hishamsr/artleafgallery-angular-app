@@ -72,10 +72,11 @@
 		<div class="banner">
 			<div class="container">
 				<div class="row">
+				<slider rotate="8000" describe="true"><!-- peaslider -->
 					<div class="col-sm-1">
-						<img src="images/button-previous.png" class="navigation_img" />
+						<img src="images/button-previous.png" class="navigation_img" ng-click="sliderPrev();" />
 					</div>
-					<div class="col-sm-10 ">
+					<div class="col-sm-10">
 						<!-- <div class="banner_img">
 							<img src="images/banner_img.png" width="945px"/>
 							<div class="banner_art_desc">
@@ -83,26 +84,23 @@
 								<p> Lorem Ipsum is simply dummy text of the printing and typesetting industry. </p>
 							</div>
 						</div> -->
-						<slider rotate="8000" describe="true"><!-- peaslider -->
+						
 
-							<slide-content>
-								<img ng-src="" class="is-hidden-img"/>
+							<slide-content class="banner_img">
+								<img ng-src="" class="is-hidden-img current_slide"/>
 								<pea-desc ng-bind="describe" class="is-hidden-img"></pea-desc>
 							</slide-content>
 
 							<slide-images>
-								<slide-img ng-repeat="item in images" img-desc="{{item.descrition}}" img-src="{{item.image.path}}" repeat-end="onEnd();">
+								<slide-img ng-repeat="item in images" img-desc="{{item.descrition}}" img-src="{{item.path}}" repeat-end="onEnd();">
 								</slide-img>
 							</slide-images>
-
-							<button class="pea-prev" ng-click="sliderPrev();"></Button>
-							<button class="pea-next" ng-click="sliderNext();"></Button>
-
-						</slider>
+						
 					</div>
 					<div class="col-sm-1">
-						<img src="images/button-next.png" class="navigation_img" />
+						<img src="images/button-next.png" class="navigation_img" ng-click="sliderNext();"/>
 					</div>
+					</slider>
 				</div>
 			</div>
 		</div>
@@ -140,8 +138,6 @@
 	<script src="app.js"></script>
 	<script src="controllers.js"></script>
 	<script src="directives.js"></script>
-	<script src="view1/view1.js"></script>
-	<script src="view2/view2.js"></script>
 	<script src="components/version/version.js"></script>
 	<script src="components/version/version-directive.js"></script>
 	<script src="components/version/interpolate-filter.js"></script>
