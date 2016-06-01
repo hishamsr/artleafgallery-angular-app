@@ -52,6 +52,7 @@ app.directive("slider", ['$timeout', function ($timeout) {
             function prevAndNext(num){
                 var attrImgLink = elemSlideSrc.eq(num).attr('img-src');
                 var attrImgDesc = elemSlideSrc.eq(num).attr('img-desc');
+                var attrImgName = elemSlideSrc.eq(num).attr('img-name');
                 var timeFadeout = $timeout(function(){
                                       //add class
                                       elemSliderContent.addClass('fadeout');
@@ -63,6 +64,7 @@ app.directive("slider", ['$timeout', function ($timeout) {
                 var timeFadein = $timeout(function(){                                      
                                       elemImgSrc.attr('src', attrImgLink);
                                       scope.describe = attrImgDesc;
+                                      scope.slider_product_name = attrImgName;
                                       elemImgSrc.bind('load', function() {
                                                      elemImgSrc.removeClass('is-hidden-img');
                                                      elemSliderContent.removeClass('fadeout');
@@ -92,7 +94,6 @@ app.directive("slider", ['$timeout', function ($timeout) {
                  rotateVerify();
             });
             function descriptionVerify(active, desc){
-
                 if (active === "true" && desc != "") {
 
                   if (elemPeaDesc.length > 0 && desc != undefined) {

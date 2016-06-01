@@ -22,18 +22,24 @@ slide-content img {
 }
 
 pea-desc{
-	width: 393px;
-	padding: 50px;
-	text-align: right;
-	top: 0px;
-	left: 0px;
+	width: 50%;
+    padding: 20px;
+    text-align: left;
+    bottom: 60px;
+    right: 100px;
+    color: #FFF;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    position: absolute;
+    color: #323232;
+    opacity: 0.8;
+    background-color: #FFF;
+    border-radius: 10px;
+    padding-left: 50px;
+}
+pea-desc p {
 	font-size: 18px;
-	color: #FFF;
-	background: rgba(0, 0, 0, 0.8) none repeat scroll 0% 0%;
-	-webkit-box-sizing: border-box;
-	-moz-box-sizing: border-box;
-	box-sizing: border-box;
-	position: absolute;
 }
 
 .pea-slider-loading{

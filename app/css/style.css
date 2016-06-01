@@ -115,18 +115,20 @@ h1 {
 	margin-right: 20px;
 }
 .search_container{
-	background-color: #FFF;
-	border: 1px solid #ccc;
-	border-radius: 3px;
-    background-color: white;
+	background-color: #72676b;
+	border: 1px solid #41383b;
+	border-radius: 5px;
     display: inline-block;
     width: 100%;
     float: right;
+    color: #FFF;
+    padding-left: 3px;
 }
 .search_container input, input:focus{
 	border: none;
 	width: 92%;
 	padding-left: 10px;
+	background-color: #72676b;
 }
 a {
 	text-decoration: none;
@@ -209,12 +211,40 @@ footer ul {
 }
 .copy_right {
 	text-align: center;
-	padding-bottom: 25px 0px;
-	font-size: 10px;
+	padding: 25px 0px;
+	font-size: 12px;
 	color: #999c9d;
+	margin-top: 20px;
 }
 footer i {
 	font-size: 10px;
 	margin-right: 10px;
 	font-weight: normal;
+}
+footer ul li {
+	margin-bottom: 10px;
+}
+
+footer img {
+	margin-top: 32%;
+}
+
+footer .social_icons {
+	list-style: none;
+}
+footer .social_icons li {
+	float: left;
+	padding: 10px 15px;
+	text-align: center;
+	background-color: #4C5054;
+	margin-right: 5px !important;
+	border-radius: 5px;
+	display: block;
+}
+footer .social_icons i {
+	margin-right: 0px !important;
+}
+
+footer .underline {
+	border-bottom: 2px solid red;
 }

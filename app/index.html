@@ -26,7 +26,7 @@
 			<div class="col-sm-5">
 				<ul class="social_icons custom_ul">
 					<li><a href="#"><i class="fa fa-facebook"></i></a></li>          
-					<li><a href="#"><i class="fa fa-linkedin"></i></a></li> 
+					<li><a href="#"><i class="fa fa-google-plus"></i></a></li> 
 					<li><a href="#"><i class="fa fa-twitter"></i></a></li>
 				</ul>
 			</div>
@@ -79,11 +79,14 @@
 					<div class="col-sm-10">
 						<slide-content class="banner_img">
 							<img ng-src="" class="is-hidden-img current_slide"/>
-							<pea-desc ng-bind="describe" class="is-hidden-img"></pea-desc>
+							<pea-desc  class="is-hidden-img">
+								<h1 ng-bind="slider_product_name">  </h1>
+								<p ng-bind="describe"></p>
+							</pea-desc>
 						</slide-content>
 
 						<slide-images>
-							<slide-img ng-repeat="item in images" img-desc="{{item.descrition}}" img-src="{{item.path}}" repeat-end="onEnd();">
+							<slide-img ng-repeat="item in images" img-name="{{item.name}}" img-desc="{{item.description}}" img-src="{{item.path}}" repeat-end="onEnd();">
 							</slide-img>
 						</slide-images>						
 					</div>
@@ -124,14 +127,19 @@
 					<img src="images/footer_logo.png">
 				</div>
 				<div class="col-xs-12 col-sm-4">
-					<h4> Contact Us </h4>
+					<h4> <span class="underline"> Contact Us </span> </h4>
 					<p> Lorem Ipsum dolar site amet </p>
 					<br> <br />
 					<p> {{company.telephone}} </p>
 					<p> {{company.email}} </p>
+					<ul class="social_icons custom_ul">
+						<li><a href="#"><i class="fa fa-facebook"></i></a></li>          
+						<li><a href="#"><i class="fa fa-google-plus"></i></a></li> 
+						<li><a href="#"><i class="fa fa-twitter"></i></a></li>
+					</ul>
 				</div>
 				<div class="col-xs-12 col-sm-4">
-					<h4> Quick Links </h4>
+					<h4> <span class="underline">Quick</span>  Links </h4>
 					<ul>
 						<li> <i class="fa fa-chevron-right"></i> Home</li>
 						<li ng-repeat="product in menu_products"> <i class="fa fa-chevron-right"></i> {{product.name}} </li>

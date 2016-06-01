@@ -20,7 +20,11 @@ app.controller("ProductsController", function($scope, appConstants, $http){
 		    var arr = []
 		    for(var i=0; i<$scope.products.length; i++){
 		    	if(i<6){
-		    		$scope.images.push({'path': $scope.products[i].slider_image, 'description': $scope.products[i].description})
+		    		$scope.images.push({
+		    			'name': $scope.products[i].name,
+		    			'path': $scope.products[i].slider_image, 
+		    			'description': $scope.products[i].description
+		    		})
 		    	}
 		    	arr.push($scope.products[i]);
 		    	if((i+1) % 3 == 0){
@@ -28,7 +32,6 @@ app.controller("ProductsController", function($scope, appConstants, $http){
 		    		arr = [];
 		    	}
 		    }
-		    console.log($scope.images);
 		}, function errorCallback(response) {
 		    // called asynchronously if an error occurs
 		    // or server returns response with an error status.
