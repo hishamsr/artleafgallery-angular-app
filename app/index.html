@@ -77,25 +77,15 @@
 						<img src="images/button-previous.png" class="navigation_img" ng-click="sliderPrev();" />
 					</div>
 					<div class="col-sm-10">
-						<!-- <div class="banner_img">
-							<img src="images/banner_img.png" width="945px"/>
-							<div class="banner_art_desc">
-								<h1> Digital Art </h1>
-								<p> Lorem Ipsum is simply dummy text of the printing and typesetting industry. </p>
-							</div>
-						</div> -->
-						
+						<slide-content class="banner_img">
+							<img ng-src="" class="is-hidden-img current_slide"/>
+							<pea-desc ng-bind="describe" class="is-hidden-img"></pea-desc>
+						</slide-content>
 
-							<slide-content class="banner_img">
-								<img ng-src="" class="is-hidden-img current_slide"/>
-								<pea-desc ng-bind="describe" class="is-hidden-img"></pea-desc>
-							</slide-content>
-
-							<slide-images>
-								<slide-img ng-repeat="item in images" img-desc="{{item.descrition}}" img-src="{{item.path}}" repeat-end="onEnd();">
-								</slide-img>
-							</slide-images>
-						
+						<slide-images>
+							<slide-img ng-repeat="item in images" img-desc="{{item.descrition}}" img-src="{{item.path}}" repeat-end="onEnd();">
+							</slide-img>
+						</slide-images>						
 					</div>
 					<div class="col-sm-1">
 						<img src="images/button-next.png" class="navigation_img" ng-click="sliderNext();"/>
@@ -106,7 +96,7 @@
 		</div>
 		<div class="container welcome_text bottommargin-sm">
 			<h1> Welcome to Artleaf </h1>
-			<p class="topmargin-lg bottommargin-lg">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+			<p class="topmargin-lg bottommargin-lg">{{company.welcome_text}}</p>
 			<img src="images/cont_divider.png" />
 
 		</div>
@@ -117,9 +107,9 @@
 					<div class="white-background bottompadding-xs">
 						<div class="name_desc">
 							<h1> {{product.name}} </h1>
-							<p> {{product.description}} </p>
+							<p> {{product.description| limitTo: 100 }}{{product.description.length > 100 ? '...' : ''}} </p>
 						</div>
-						<img class="bottommargin-xs" src="images/mural_img.jpg" />
+						<img class="bottommargin-xs" src="{{product.homepage_list_icon}}" />
 						<p align="right"> Read more ...<i class="fa fa-external-link"></i></p>
 					</div>
 
@@ -127,7 +117,33 @@
 			</div>
 		</div>
 	</section>
-	<footer></footer>
+	<footer ng-controller="ProductsController">
+		<div class="container">
+			<div class="row">
+				<div class="col-xs-12 col-sm-4">
+					<img src="images/footer_logo.png">
+				</div>
+				<div class="col-xs-12 col-sm-4">
+					<h4> Contact Us </h4>
+					<p> Lorem Ipsum dolar site amet </p>
+					<br> <br />
+					<p> {{company.telephone}} </p>
+					<p> {{company.email}} </p>
+				</div>
+				<div class="col-xs-12 col-sm-4">
+					<h4> Quick Links </h4>
+					<ul>
+						<li> <i class="fa fa-chevron-right"></i> Home</li>
+						<li ng-repeat="product in menu_products"> <i class="fa fa-chevron-right"></i> {{product.name}} </li>
+						<li><i class="fa fa-chevron-right"></i> Frames</li>
+					</ul>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-xs-12 copy_right">@copy; 2016 Artleaf All rights Reserved </div>
+			</div>
+		</div>
+	</footer>
 
 
 	<!-- In production use:

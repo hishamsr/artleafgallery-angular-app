@@ -4,6 +4,7 @@ app.controller("ProductsController", function($scope, appConstants, $http){
 	$scope.menu_products = [];
 	$scope.product_slice = [];
 	$scope.images = [];
+	$scope.company = "";
 
 	$scope.get_products = function(){
 		$http({
@@ -34,5 +35,18 @@ app.controller("ProductsController", function($scope, appConstants, $http){
 		});
 
 	}
+	$scope.get_company = function(){
+		$http({
+		  method: 'GET',
+		  url: appConstants.apiUrl+'api/company/'
+		}).then(function successCallback(response) {
+			$scope.company = response.data[0];
+		}, function errorCallback(response) {
+		    // called asynchronously if an error occurs
+		    // or server returns response with an error status.
+		});
+
+	}
 	$scope.get_products();
+	$scope.get_company();
 });

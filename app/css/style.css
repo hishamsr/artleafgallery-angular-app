@@ -196,3 +196,25 @@ a {
     display: inline-block;
     vertical-align: middle;
 }
+
+footer {
+	height: 426px;
+	background: url('../images/footer_bg.jpg');
+	color: #FFF;
+	padding-top: 50px;
+}
+footer ul {
+	list-style: none;
+	padding: 0px;
+}
+.copy_right {
+	text-align: center;
+	padding-bottom: 25px 0px;
+	font-size: 10px;
+	color: #999c9d;
+}
+footer i {
+	font-size: 10px;
+	margin-right: 10px;
+	font-weight: normal;
+}
