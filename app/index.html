@@ -16,27 +16,28 @@
 	<link href="css/fonts.css" rel="stylesheet">
 	<link href="css/style.css" rel="stylesheet">
 	<link href="css/slider.css" rel="stylesheet">
+	<link href="css/custom.css" rel="stylesheet">
 
 	<script src="bower_components/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js"></script>
 </head>
 <body>
-	<header>
+<!-- 	<header>
 	<div class="container">
 		<div class="row">
-			<div class="col-sm-5">
+			<div class="col-sm-5 col-xs-12">
 				<ul class="social_icons custom_ul">
 					<li><a href="#"><i class="fa fa-facebook"></i></a></li>          
 					<li><a href="#"><i class="fa fa-google-plus"></i></a></li> 
 					<li><a href="#"><i class="fa fa-twitter"></i></a></li>
 				</ul>
 			</div>
-			<div class="col-sm-4 norightpadding">
+			<div class="col-sm-4 norightpadding col-xs-12">
 				<span class="search_container">
 					<input type="text" name="search_text" placeholder="Search..."/>
 					<i class="fa fa-search"></i>
 				</span>
 			</div>
-			<div class="col-sm-3 noleftpadding">
+			<div class="col-sm-3 noleftpadding col-xs-12">
 				<ul class="custom_ul account_settings">
 					 <li><a href="#"><i class="fa fa-user"></i> Login</a></li>
 					 <li><a href="#"><i class="fa fa-sign-in"></i> Register</a></li>
@@ -48,41 +49,28 @@
 		
 
 
+	</header> -->
+	<header ng-include src="'header.html'">
+		
 	</header>
-	<section ng-controller="ProductsController">
-		<section class="menu_logo_section">
-			<div class="container menu_logo_container clear_fix">
-				<div class="row">
-					<div class="col-sm-3 borderright">
-						<img src="images/logo.png" class="leftmargin-xl"/>
-					</div>
-					<div class="col-sm-9">
-						<ul class="custom_ul topmargin-lg nopadding">
-							<li class="rightpadding-sm"> <a href="#"> Home</a></li>
-							<li class="rightpadding-sm" ng-repeat="Product in menu_products">
-								<a href="#"> {{Product.name}}</a>
-							</li>
-							<li class="rightpadding-sm"> <a href="#"> Frame</a></li>
-							<li> <a href="#"> Contact Us</a></li>
-						</ul>
-					</div>
-				</div>
-			</div>
+	<section ng-controller="HomeController"> 
+		<section class="menu_logo_section" ng-include src="'menu.html'">
+			
 		</section>
 		<div class="banner">
 			<div class="container">
 				<div class="row">
-				<slider rotate="8000" describe="true"><!-- peaslider -->
+				<slider rotate="4000" describe="true"><!-- peaslider -->
 					<div class="col-sm-1">
 						<img src="images/button-previous.png" class="navigation_img" ng-click="sliderPrev();" />
 					</div>
 					<div class="col-sm-10">
 						<slide-content class="banner_img">
 							<img ng-src="" class="is-hidden-img current_slide"/>
-							<pea-desc  class="is-hidden-img">
+							<!-- <pea-desc  class="is-hidden-img">
 								<h1 ng-bind="slider_product_name">  </h1>
 								<p ng-bind="describe"></p>
-							</pea-desc>
+							</pea-desc> -->
 						</slide-content>
 
 						<slide-images>
@@ -120,37 +108,8 @@
 			</div>
 		</div>
 	</section>
-	<footer ng-controller="ProductsController">
-		<div class="container">
-			<div class="row">
-				<div class="col-xs-12 col-sm-4">
-					<img src="images/footer_logo.png">
-				</div>
-				<div class="col-xs-12 col-sm-4">
-					<h4> <span class="underline"> Contact Us </span> </h4>
-					<p> Lorem Ipsum dolar site amet </p>
-					<br> <br />
-					<p> {{company.telephone}} </p>
-					<p> {{company.email}} </p>
-					<ul class="social_icons custom_ul">
-						<li><a href="#"><i class="fa fa-facebook"></i></a></li>          
-						<li><a href="#"><i class="fa fa-google-plus"></i></a></li> 
-						<li><a href="#"><i class="fa fa-twitter"></i></a></li>
-					</ul>
-				</div>
-				<div class="col-xs-12 col-sm-4">
-					<h4> <span class="underline">Quick</span>  Links </h4>
-					<ul>
-						<li> <i class="fa fa-chevron-right"></i> Home</li>
-						<li ng-repeat="product in menu_products"> <i class="fa fa-chevron-right"></i> {{product.name}} </li>
-						<li><i class="fa fa-chevron-right"></i> Frames</li>
-					</ul>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-xs-12 copy_right">@copy; 2016 Artleaf All rights Reserved </div>
-			</div>
-		</div>
+	<footer ng-include src="'footer.html'">
+		
 	</footer>
 
 
@@ -160,6 +119,7 @@
 	<script src="bower_components/angular/angular.js"></script>
 	<script src="bower_components/angular-route/angular-route.js"></script>
 	<script src="app.js"></script>
+	<script src="services.js"></script>
 	<script src="controllers.js"></script>
 	<script src="directives.js"></script>
 	<script src="components/version/version.js"></script>

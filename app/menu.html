@@ -1,0 +1,17 @@
+<div class="container menu_logo_container clear_fix" ng-controller="MenuController">
+				<div class="row">
+					<div class="col-sm-3 borderright">
+						<img src="images/logo.png" class="leftmargin-xl"/>
+					</div>
+					<div class="col-sm-9">
+						<ul class="custom_ul topmargin-lg nopadding">
+							<li class="rightpadding-sm"> <a href="#"> Home</a></li>
+							<li class="rightpadding-sm" ng-repeat="Product in menu_products">
+								<a href="#"> {{Product.name}}</a>
+							</li>
+							<li class="rightpadding-sm"> <a href="#"> Frames</a></li>
+							<li> <a href="#"> Contact Us</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>

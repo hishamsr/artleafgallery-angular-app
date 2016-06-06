@@ -1,0 +1,58 @@
+
+/*Hader Top
+==========================================*/
+.social_icons_wrap{ float:left; width:535px; padding:0; margin:0;}
+.search_container_wrap{ float:left; width:316px; padding:0; margin:0;}
+.account_settings_wrap{ float:left; width:289px; padding:0; margin:0;}
+
+
+/* lg */ 
+@media (min-width: 1200px) {
+}
+
+/* md */
+@media (min-width: 992px) and (max-width: 1199px) {
+}
+
+@media (max-width: 1024px) {
+.social_icons_wrap{ float:left; width:25%; text-align:left; padding:0 0px 0 0;}
+.account_settings_wrap{ float:left; width:37%; text-align:left; padding:0 0px 0 0;}
+.search_container_wrap{ float:left; width:38%; text-align:left; padding:0 0px 0 0;}
+}
+/* sm */
+@media (min-width: 768px) and (max-width: 991px) {
+.social_icons_wrap{ float:left; width:25%; text-align:left; padding:0 0px 0 0;}
+.account_settings_wrap{ float:left; width:37%; text-align:left; padding:0 0px 0 0;}
+.search_container_wrap{ float:left; width:38%; text-align:left; padding:0 0px 0 0;}
+}
+
+/* xs */
+@media (max-width: 767px) {
+.social_icons_wrap{ float:left; width:25%; text-align:left; padding:0 0px 0 0;}
+.search_container_wrap {
+    float: left;
+    text-align: center;
+    padding: 0px 15px;
+    margin: 10px 0px 0px;
+    width: 100%;
+}
+.account_settings_wrap {
+    float: left;
+    width: 46%;
+    text-align: center;
+    padding: 0px;
+    position: absolute;
+    right: 0px;
+}
+.account_settings{ float:none;}
+.social_icons {float: none;}
+}
+
+/* XS Portrait */
+@media (max-width: 480px) {
+.social_icons_wrap, .search_container_wrap, .account_settings_wrap{ float:left; width:100%; text-align:center; padding:0 15px;}
+.search_container_wrap{margin:0 0 10px 0;}
+.account_settings{ float:none;}
+.social_icons {float: none;}
+.account_settings_wrap {position: relative;}
+}

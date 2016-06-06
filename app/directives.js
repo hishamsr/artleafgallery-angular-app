@@ -23,7 +23,7 @@ app.directive("slider", ['$timeout', function ($timeout) {
             var num = 0;
             var pull = null;
             var rotate = 0;
-            var rotateMin = 4999;
+            var rotateMin = 3999;
             var describeActive = false;
 
             prevAndNext(num);
@@ -51,7 +51,7 @@ app.directive("slider", ['$timeout', function ($timeout) {
             // func PREV AND NEXT
             function prevAndNext(num){
                 var attrImgLink = elemSlideSrc.eq(num).attr('img-src');
-                var attrImgDesc = elemSlideSrc.eq(num).attr('img-desc');
+                //var attrImgDesc = elemSlideSrc.eq(num).attr('img-desc');
                 var attrImgName = elemSlideSrc.eq(num).attr('img-name');
                 var timeFadeout = $timeout(function(){
                                       //add class
@@ -63,13 +63,13 @@ app.directive("slider", ['$timeout', function ($timeout) {
 
                 var timeFadein = $timeout(function(){                                      
                                       elemImgSrc.attr('src', attrImgLink);
-                                      scope.describe = attrImgDesc;
+                                      //scope.describe = attrImgDesc;
                                       scope.slider_product_name = attrImgName;
                                       elemImgSrc.bind('load', function() {
                                                      elemImgSrc.removeClass('is-hidden-img');
                                                      elemSliderContent.removeClass('fadeout');
                                                      elemSlider.removeClass('pea-slider-loading');
-                                                     descriptionVerify(describeActive, attrImgDesc);
+                                                     //descriptionVerify(describeActive, attrImgDesc);
                                                      $timeout.cancel(timeFadein);
                                                   });
                                   

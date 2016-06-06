@@ -119,7 +119,7 @@ h1 {
 	border: 1px solid #41383b;
 	border-radius: 5px;
     display: inline-block;
-    width: 100%;
+    width: 80%;
     float: right;
     color: #FFF;
     padding-left: 3px;
@@ -160,11 +160,11 @@ a {
 }
 .welcome_text h1 {
 	display: inline-block;
-	border-bottom: 2px solid yellow;
+	color: #000;
 }
 
 .name_desc {
-	padding: 15px 10px 30px 10px;
+	padding: 1px 10px 10px 10px;
 }
 
 .banner {

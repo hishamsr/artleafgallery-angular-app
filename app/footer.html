@@ -1,0 +1,30 @@
+<div class="container" ng-controller="MenuController">
+			<div class="row">
+				<div class="col-xs-12 col-sm-4">
+					<img src="images/footer_logo.png">
+				</div>
+				<div class="col-xs-12 col-sm-4">
+					<h4> <span class="underline"> Contact Us </span> </h4>
+					<p> Lorem Ipsum dolar site amet </p>
+					<br> <br />
+					<p> {{company.telephone}} </p>
+					<p> {{company.email}} </p>
+					<ul class="social_icons custom_ul">
+						<li><a href="#"><i class="fa fa-facebook"></i></a></li>          
+						<li><a href="#"><i class="fa fa-google-plus"></i></a></li> 
+						<li><a href="#"><i class="fa fa-twitter"></i></a></li>
+					</ul>
+				</div>
+				<div class="col-xs-12 col-sm-4">
+					<h4> <span class="underline">Quick</span>  Links </h4>
+					<ul>
+						<li> <i class="fa fa-chevron-right"></i> Home</li>
+						<li ng-repeat="product in menu_products"> <i class="fa fa-chevron-right"></i> {{product.name}} </li>
+						<li><i class="fa fa-chevron-right"></i> Frames</li>
+					</ul>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-xs-12 copy_right">@copy; 2016 Artleaf All rights Reserved </div>
+			</div>
+		</div>
