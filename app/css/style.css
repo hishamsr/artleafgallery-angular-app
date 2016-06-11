@@ -160,7 +160,7 @@ a {
 }
 .welcome_text h1 {
 	display: inline-block;
-	color: #000;
+	color: #555;
 }
 
 .name_desc {
@@ -248,3 +248,19 @@ footer .social_icons i {
 footer .underline {
 	border-bottom: 2px solid red;
 }
+
+
+/* Menu overrides */
+
+.navbar-default {
+    background-color: none !important; 
+    border-color: none !important; 
+}
+.nav>li>a {
+	padding: 10px !important;
+}
+.navbar {
+	margin-top: 20px;
+	margin-bottom: 0px !important;
+}
+/* Menu overrides end */

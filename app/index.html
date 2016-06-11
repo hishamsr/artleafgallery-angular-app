@@ -3,6 +3,7 @@
 <!--[if IE 7]>         <html lang="en" ng-app="artleafgallery" class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html lang="en" ng-app="artleafgallery" class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]><!--> <html lang="en" ng-app="artleafgallery" class="no-js"> <!--<![endif]-->
+
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -12,102 +13,24 @@
 	<link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/normalize.css">
 	<link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/main.css">
 	<link href="css/font-awesome.min.css" rel="stylesheet">
-	<link href="css/bootstrap.min.css" rel="stylesheet">
+	<link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
 	<link href="css/fonts.css" rel="stylesheet">
 	<link href="css/style.css" rel="stylesheet">
 	<link href="css/slider.css" rel="stylesheet">
 	<link href="css/custom.css" rel="stylesheet">
 
+	
 	<script src="bower_components/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js"></script>
+
 </head>
 <body>
-<!-- 	<header>
-	<div class="container">
-		<div class="row">
-			<div class="col-sm-5 col-xs-12">
-				<ul class="social_icons custom_ul">
-					<li><a href="#"><i class="fa fa-facebook"></i></a></li>          
-					<li><a href="#"><i class="fa fa-google-plus"></i></a></li> 
-					<li><a href="#"><i class="fa fa-twitter"></i></a></li>
-				</ul>
-			</div>
-			<div class="col-sm-4 norightpadding col-xs-12">
-				<span class="search_container">
-					<input type="text" name="search_text" placeholder="Search..."/>
-					<i class="fa fa-search"></i>
-				</span>
-			</div>
-			<div class="col-sm-3 noleftpadding col-xs-12">
-				<ul class="custom_ul account_settings">
-					 <li><a href="#"><i class="fa fa-user"></i> Login</a></li>
-					 <li><a href="#"><i class="fa fa-sign-in"></i> Register</a></li>
-					 <li><a href="#"><i class="fa fa-shopping-cart"></i> MyCart</a></li>
-				</ul>
-			</div>
-		</div>
-	</div>
-		
 
-
-	</header> -->
-	<header ng-include src="'header.html'">
-		
-	</header>
-	<section ng-controller="HomeController"> 
-		<section class="menu_logo_section" ng-include src="'menu.html'">
+	<header ng-include src="'header.html'">	</header>
+	<section class="menu_logo_section" ng-include src="'menu.html'">
 			
-		</section>
-		<div class="banner">
-			<div class="container">
-				<div class="row">
-				<slider rotate="4000" describe="true"><!-- peaslider -->
-					<div class="col-sm-1">
-						<img src="images/button-previous.png" class="navigation_img" ng-click="sliderPrev();" />
-					</div>
-					<div class="col-sm-10">
-						<slide-content class="banner_img">
-							<img ng-src="" class="is-hidden-img current_slide"/>
-							<!-- <pea-desc  class="is-hidden-img">
-								<h1 ng-bind="slider_product_name">  </h1>
-								<p ng-bind="describe"></p>
-							</pea-desc> -->
-						</slide-content>
-
-						<slide-images>
-							<slide-img ng-repeat="item in images" img-name="{{item.name}}" img-desc="{{item.description}}" img-src="{{item.path}}" repeat-end="onEnd();">
-							</slide-img>
-						</slide-images>						
-					</div>
-					<div class="col-sm-1">
-						<img src="images/button-next.png" class="navigation_img" ng-click="sliderNext();"/>
-					</div>
-					</slider>
-				</div>
-			</div>
-		</div>
-		<div class="container welcome_text bottommargin-sm">
-			<h1> Welcome to Artleaf </h1>
-			<p class="topmargin-lg bottommargin-lg">{{company.welcome_text}}</p>
-			<img src="images/cont_divider.png" />
-
-		</div>
-		<div class="container product_list">
-		
-			<div class="row bottommargin-sm" ng-repeat="slice in product_slice">
-				<div class="col-sm-4" ng-repeat="product in slice">
-					<div class="white-background bottompadding-xs">
-						<div class="name_desc">
-							<h1> {{product.name}} </h1>
-							<p> {{product.description| limitTo: 100 }}{{product.description.length > 100 ? '...' : ''}} </p>
-						</div>
-						<img class="bottommargin-xs" src="{{product.homepage_list_icon}}" />
-						<p align="right"> Read more ...<i class="fa fa-external-link"></i></p>
-					</div>
-
-				</div>
-			</div>
-		</div>
 	</section>
+	<div ui-view></div>
+	
 	<footer ng-include src="'footer.html'">
 		
 	</footer>
@@ -118,6 +41,9 @@
 	-->
 	<script src="bower_components/angular/angular.js"></script>
 	<script src="bower_components/angular-route/angular-route.js"></script>
+	<script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+	<script src="bower_components/jquery/dist/jquery.min.js"></script>
+	<script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 	<script src="app.js"></script>
 	<script src="services.js"></script>
 	<script src="controllers.js"></script>
@@ -125,5 +51,8 @@
 	<script src="components/version/version.js"></script>
 	<script src="components/version/version-directive.js"></script>
 	<script src="components/version/interpolate-filter.js"></script>
+	<script type="text/javascript">
+	    angular.element(document.getElementsByTagName('head')).append(angular.element('<base href="' + window.location.pathname + '" />'));
+	  </script>
 </body>
 </html>

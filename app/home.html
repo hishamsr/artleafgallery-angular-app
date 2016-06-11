@@ -1,0 +1,50 @@
+<section ng-controller="HomeController"> 
+
+		<div class="banner">
+			<div class="container">
+				<div class="row">
+				<slider rotate="4000" describe="true">
+					<div class="col-sm-1">
+						<img src="images/button-previous.png" class="navigation_img" ng-click="sliderPrev();" />
+					</div>
+					<div class="col-sm-10">
+						<slide-content class="banner_img">
+							<img ng-src="" class="is-hidden-img current_slide"/>
+							
+						</slide-content>
+
+						<slide-images>
+							<slide-img ng-repeat="item in images" img-name="{{item.name}}" img-desc="{{item.description}}" img-src="{{item.path}}" repeat-end="onEnd();">
+							</slide-img>
+						</slide-images>						
+					</div>
+					<div class="col-sm-1">
+						<img src="images/button-next.png" class="navigation_img" ng-click="sliderNext();"/>
+					</div>
+					</slider>
+				</div>
+			</div>
+		</div>
+		<div class="container welcome_text bottommargin-sm">
+			<h1> Welcome to Artleaf </h1>
+			<p class="topmargin-lg bottommargin-lg">{{company.welcome_text}}</p>
+			<img src="images/cont_divider.png" />
+
+		</div>
+		<div class="container product_list">
+		
+			<div class="row bottommargin-sm" ng-repeat="slice in product_slice">
+				<div class="col-sm-4" ng-repeat="product in slice">
+					<div class="white-background bottompadding-xs">
+						<div class="name_desc">
+							<h1> {{product.name}} </h1>
+							<p> {{product.description| limitTo: 100 }}{{product.description.length > 100 ? '...' : ''}} </p>
+						</div>
+						<img class="bottommargin-xs" src="{{product.homepage_list_icon}}" />
+						<p align="right"> Read more ...<i class="fa fa-external-link"></i></p>
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</section>

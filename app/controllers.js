@@ -19,6 +19,55 @@ app.controller("MenuController", function($scope,$http, productService){
  
     $scope.getProducts();
 });
+app.controller("ProductsController", function($scope,$http, productService, $stateParams, appConstants){
+	$scope.productId = $stateParams.productId;
+	$scope.categoryId = $stateParams.categoryId;
+	if($scope.categoryId) {
+		var url = appConstants.apiUrl+'api/artworks/'+$scope.productId+"/"+$scope.categoryId+"/";
+	} else {
+		var url = appConstants.apiUrl+'api/artworks/'+$scope.productId+"/";
+	}
+	$scope.artImages_slice = [];
+	$scope.get_artImages = function(){
+		$http({
+		  method: 'GET',
+		  url: url
+		}).then(function successCallback(response) {
+			console.log(response.data)
+			$scope.artImages = response.data;
+			var arr = []
+			if($scope.artImages.length > 3) {
+		    	for(var i=0; i<$scope.artImages.length; i++){
+			    	arr.push($scope.artImages[i]);
+			    	if((i+1) % 3 == 0){
+			    		$scope.artImages_slice.push(arr);
+			    		arr = [];
+			    	}
+			    }
+			} else {
+				$scope.artImages_slice.push($scope.artImages);
+			}
+			console.log($scope.artImages, $scope.artImages_slice);
+		}, function errorCallback(response) {
+		    // called asynchronously if an error occurs
+		    // or server returns response with an error status.
+		});
+	}
+	$scope.getProductDetails = function(){
+		$http({
+		  method: 'GET',
+		  url: appConstants.apiUrl+'api/products/'+$scope.productId+"/"
+		}).then(function successCallback(response) {
+			$scope.product = response.data;
+		}, function errorCallback(response) {
+		    // called asynchronously if an error occurs
+		    // or server returns response with an error status.
+		});
+	}
+	$scope.get_artImages();
+	$scope.getProductDetails();
+});
+
 app.controller("HomeController", function($scope,$http, productService, appConstants){
 	$scope.menu_products = [];
 	$scope.product_slice = [];
@@ -47,28 +96,6 @@ app.controller("HomeController", function($scope,$http, productService, appConst
         });
     };
  
-    $scope.getProducts();
-
-	
-
-	/*$scope.get_products = function(){
-		$http({
-		  method: 'GET',
-		  url: appConstants.apiUrl+'api/products/'
-		}).then(function successCallback(response) {
-		    $scope.products = response.data;
-		    if($scope.products.length > 6){
-		    	$scope.menu_products = $scope.products.slice(0,7);
-		    } else {
-		    	$scope.menu_products = $scope.products;
-		    }
-		    
-		}, function errorCallback(response) {
-		    // called asynchronously if an error occurs
-		    // or server returns response with an error status.
-		});
-
-	}*/
 	$scope.get_company = function(){
 		$http({
 		  method: 'GET',
@@ -81,6 +108,6 @@ app.controller("HomeController", function($scope,$http, productService, appConst
 		});
 
 	}
-	//$scope.get_products();
+	$scope.getProducts();
 	$scope.get_company();
 });
