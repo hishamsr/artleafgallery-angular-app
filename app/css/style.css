@@ -261,7 +261,7 @@ footer .underline {
 	font-weight: bold !important;
 	background: none !important;
 }
-.nav>li:hover, .nav>li>a:hover {
+.nav>li:hover, .nav>li>a:hover, .read_more a:hover {
 	background: none !important;
 	color: #282460;
 }
@@ -277,5 +277,9 @@ footer .underline {
 }
 .dropdown-menu>li>a {
 	color: #282460;
+}
+.read_more a{
+	color: #717171;
+	text-decoration: none;
 }
 /* Menu overrides end */

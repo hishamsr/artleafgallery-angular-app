@@ -1,11 +1,9 @@
 <section ng-controller="ProductsController"> 
 		<div class="container product_list">
-			<h1 align="center"> {{product.name}} </h1>
-		
+			<h1 align="center"> {{product.name}} </h1>		
 			<div class="row bottommargin-sm" ng-repeat="slice in artImages_slice">
 				<div class="col-sm-4" ng-repeat="artImage in slice">
-					<div class="white-background bottompadding-xs">
-						
+					<div class="white-background bottompadding-xs">						
 						<img class="bottommargin-xs" src="{{artImage.image}}" />
 						<div class="name_desc">
 							<h1> {{artImage.story}} </h1>							
@@ -14,7 +12,6 @@
 							<p> {{artImage.description}} <button>Add to Cart</button></p>
 						</div>
 					</div>
-
 				</div>
 			</div>
 		</div>
