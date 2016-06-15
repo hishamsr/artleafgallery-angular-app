@@ -258,9 +258,24 @@ footer .underline {
 }
 .nav>li>a {
 	padding: 10px !important;
+	font-weight: bold !important;
+	background: none !important;
 }
+.nav>li:hover, .nav>li>a:hover {
+	background: none !important;
+	color: #282460;
+}
+
 .navbar {
 	margin-top: 20px;
 	margin-bottom: 0px !important;
+}
+
+.nav .open>a {
+	background-color: #FFF !important;
+	color: #282460;
+}
+.dropdown-menu>li>a {
+	color: #282460;
 }
 /* Menu overrides end */
