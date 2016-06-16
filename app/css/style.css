@@ -198,6 +198,9 @@ a {
     display: inline-block;
     vertical-align: middle;
 }
+.product_name {
+	color: #555;
+}
 
 footer {
 	height: 426px;
