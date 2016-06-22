@@ -13,9 +13,13 @@ app.controller("MenuController", function($scope,$http, productService){
 		    } else {
 		    	$scope.menu_products = $scope.products;
 		    }
- 
+		    
+
         });
     };
+    $scope.redirect = function(product){
+    	window.location.href = "#/products/?productId="+product.id;
+    }
  
     $scope.getProducts();
 });
@@ -43,25 +47,27 @@ app.controller("ProductsController", function($scope,$http, productService, $sta
 			$scope.pages = []
 			var array_length = $scope.artImages.length;
 			var array_limit = (array_length >= 3) ? array_length-3 : 0;
-	    	for(var i=0; i<=array_limit; ){
-	    		page.col1.push($scope.artImages[i]);
+			if(array_length > 0 ){
+				for(var i=0; i<=array_limit; ){
+		    		page.col1.push($scope.artImages[i]);
 
-	    		if(i+1<array_length)
-	    			page.col2.push($scope.artImages[i+1]);
-	    		if(i+2<array_length)
-	    			page.col3.push($scope.artImages[i+2]);
-		    	
-		    	
-		    	if(((i+3) % 30 == 0) || (i == array_limit)) {
-	    			$scope.pages.push(page);
-	    			page = {
-						'col1': [],
-						'col2': [],
-						'col3': []
-					}
-	    		} 
-	    		i = i + 3;
-		    }
+		    		if(i+1<array_length)
+		    			page.col2.push($scope.artImages[i+1]);
+		    		if(i+2<array_length)
+		    			page.col3.push($scope.artImages[i+2]);
+			    	
+			    	
+			    	if(((i+3) % 30 == 0) || (i == array_limit)) {
+		    			$scope.pages.push(page);
+		    			page = {
+							'col1': [],
+							'col2': [],
+							'col3': []
+						}
+		    		} 
+		    		i = i + 3;
+			    }
+			}	    	
 			
 		}, function errorCallback(response) {
 		    // called asynchronously if an error occurs

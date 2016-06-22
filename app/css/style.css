@@ -154,7 +154,9 @@ a {
 	font-size: 14px;
 	font-weight: bold;
 }
-
+ul.nav li.dropdown:hover > ul.dropdown-menu {
+    display: block;    
+}
 .welcome_text {
 	text-align: center;
 }
