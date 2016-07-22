@@ -18,62 +18,24 @@ app.controller("MenuController", function($scope,$http, productService){
         });
     };
     $scope.redirect = function(product){
-    	window.location.href = "#/products/?productId="+product.id;
+    	window.location.href = "#/products/"+product.id;
     }
  
     $scope.getProducts();
 });
 app.controller("ProductsController", function($scope,$http, productService, $stateParams, appConstants){
+	console.log('controller');
 	$scope.productId = $stateParams.productId;
 	$scope.categoryId = $stateParams.categoryId;
+	console.log($scope.productId, $scope.categoryId, $stateParams)
 	if($scope.categoryId) {
 		var url = appConstants.apiUrl+'api/artworks/'+$scope.productId+"/"+$scope.categoryId+"/";
 	} else {
 		var url = appConstants.apiUrl+'api/artworks/'+$scope.productId+"/";
 	}
 	$scope.artImages_slice = [];
-	$scope.get_artImages = function(){
-		$http({
-		  method: 'GET',
-		  url: url
-		}).then(function successCallback(response) {
-			$scope.artImages = response.data;
-			var arr = []
-			var page = {
-				'col1': [],
-				'col2': [],
-				'col3': []
-			}
-			$scope.pages = []
-			var array_length = $scope.artImages.length;
-			var array_limit = (array_length >= 3) ? array_length-3 : 0;
-			if(array_length > 0 ){
-				for(var i=0; i<=array_limit; ){
-		    		page.col1.push($scope.artImages[i]);
-
-		    		if(i+1<array_length)
-		    			page.col2.push($scope.artImages[i+1]);
-		    		if(i+2<array_length)
-		    			page.col3.push($scope.artImages[i+2]);
-			    	
-			    	
-			    	if(((i+3) % 30 == 0) || (i == array_limit)) {
-		    			$scope.pages.push(page);
-		    			page = {
-							'col1': [],
-							'col2': [],
-							'col3': []
-						}
-		    		} 
-		    		i = i + 3;
-			    }
-			}	    	
-			
-		}, function errorCallback(response) {
-		    // called asynchronously if an error occurs
-		    // or server returns response with an error status.
-		});
-	}
+	
+	
 	$scope.getProductDetails = function(){
 		$http({
 		  method: 'GET',

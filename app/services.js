@@ -23,3 +23,7 @@ app.service('productService', function(appConstants, $http, $q) {
       	return $q.when(products);
     }
 });
+
+app.factory('artWorksService', function(){
+
+})
