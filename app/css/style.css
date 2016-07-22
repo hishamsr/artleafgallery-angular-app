@@ -196,9 +196,7 @@ ul.nav li.dropdown:hover > ul.dropdown-menu {
     height: 50% !important;
     padding: 10px 20px;t;
 }
-.banner_img {
-	margin-top: 30px;
-}
+
 .vcenter {
     display: inline-block;
     vertical-align: middle;
@@ -289,5 +287,15 @@ footer .underline {
 .read_more a{
 	color: #717171;
 	text-decoration: none;
+}
+.left_arrow {
+	position: absolute;
+	left: 0px;
+	z-index: 10;
+}
+.right_arrow {
+	position: absolute;
+	right: 0px;
+	z-index: 10;
 }
 /* Menu overrides end */
