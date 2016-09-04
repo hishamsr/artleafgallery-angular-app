@@ -93,6 +93,7 @@ h1 {
 
 .white-background {
 	background-color: #FFF;
+	margin-bottom: 10px;
 }
 .parent {
     display: table;
