@@ -133,13 +133,13 @@ app.directive("repeatEnd", [function(){
 }]);
 
 app.directive("loadmoredata", [function() {
-  console.log('here');
         return {
             restrict: 'A',
             link: function($scope, element, attrs, ctrl) {
                 var raw = element[0];
-                console.log(raw);
-                element.scroll(function() {
+                var e = jQuery(element[0]);
+                var doc = jQuery(document);
+                angular.element(document).bind('scroll', function() {
                     if (raw.scrollTop + raw.offsetHeight >= raw.scrollHeight){
                         $scope.$apply("getArtImages()");
                     }
@@ -147,6 +147,22 @@ app.directive("loadmoredata", [function() {
             }
         }; 
 }]);
+
+app.directive('scrollTrigger', function($window) {
+    return {
+        link : function(scope, element, attrs) {
+            var offset = parseInt(attrs.threshold) || 0;
+            var e = jQuery(element[0]);
+            var doc = jQuery(document);
+            angular.element(document).bind('scroll', function() {
+              console.log('scroll');
+                if (doc.scrollTop() + $window.innerHeight + offset > e.offset().top) {
+                    scope.$apply("getArtImages()");
+                }
+            });
+        }
+    };
+});
 
 /*app.directive("loadmoredata", ['$document' ,function($document) {
   console.log('here');

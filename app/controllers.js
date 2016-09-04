@@ -27,9 +27,9 @@ app.controller("ProductsController", function($scope,$http, productService, $sta
 	$scope.productId = $stateParams.productId;
 	$scope.categoryId = $stateParams.categoryId;
 	if($scope.categoryId) {
-		var url = appConstants.apiUrl+'api/artworks/'+$scope.productId+"/"+$scope.categoryId+"/";
+		$scope.url = appConstants.apiUrl+'api/artworks/'+$scope.productId+"/?page=1";
 	} else {
-		var url = appConstants.apiUrl+'api/artworks/'+$scope.productId+"/";
+		$scope.url = appConstants.apiUrl+'api/artworks/'+$scope.productId+"/?page=1";
 	}
 	$scope.artImages_slice = [];
 	$scope.page_number = 1;
@@ -51,26 +51,28 @@ app.controller("ProductsController", function($scope,$http, productService, $sta
 		});
 	}
 	$scope.getArtImages = function(){
-		$http({
-		  method: 'GET',
-		  url: url+"?page="+ $scope.page_number,
-		}).then(function successCallback(response) {
-			console.log(response.data)
-			$scope.artImages = response.data.results;			
-			$.each($scope.artImages, function(index, item){
-				if((index+2)%2 == 0){
-					$scope.page['col2'].push(item);
-				} else if((index+3)%3 == 0){
-					$scope.page['col3'].push(item);
-				} else {
-					$scope.page['col1'].push(item);
-				}
+		if($scope.url){	
+			$http({
+			  method: 'GET',
+			  url: $scope.url,
+			}).then(function successCallback(response) {
+				$scope.artImages = response.data.results;	
+				$scope.url = response.data.next;		
+				$.each($scope.artImages, function(index, item){
+					if((index+1)%3 == 0){
+						$scope.page['col3'].push(item);
+					} else if((index+1)%2 == 0){
+						$scope.page['col2'].push(item);
+					} else {
+						$scope.page['col1'].push(item);
+					}
+				});
+				$scope.page_number = $scope.page_number + 1;
+			}, function errorCallback(response) {
+			    // called asynchronously if an error occurs
+			    // or server returns response with an error status.
 			});
-			$scope.page_number = $scope.page_number + 1;
-		}, function errorCallback(response) {
-		    // called asynchronously if an error occurs
-		    // or server returns response with an error status.
-		});
+		}
 	}
 	$scope.getArtImages();
 	$scope.getProductDetails();
@@ -100,8 +102,7 @@ app.controller("HomeController", function($scope,$http, productService, appConst
 		    		arr = [];
 		    	}
 		    }
- 
-        });
+         });
     };
  
 	$scope.get_company = function(){
@@ -114,7 +115,6 @@ app.controller("HomeController", function($scope,$http, productService, appConst
 		    // called asynchronously if an error occurs
 		    // or server returns response with an error status.
 		});
-
 	}
 	$scope.getProducts();
 	$scope.get_company();
