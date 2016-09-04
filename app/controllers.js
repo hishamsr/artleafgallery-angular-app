@@ -31,6 +31,7 @@ app.controller("ProductsController", function($scope,$http, productService, $sta
 	} else {
 		$scope.url = appConstants.apiUrl+'api/artworks/'+$scope.productId+"/?page=1";
 	}
+	$scope.previous = "";
 	$scope.artImages_slice = [];
 	$scope.page_number = 1;
 	$scope.page = {
@@ -51,12 +52,14 @@ app.controller("ProductsController", function($scope,$http, productService, $sta
 		});
 	}
 	$scope.getArtImages = function(){
-		if($scope.url){	
+		console.log(typeof($scope.url));
+		if($scope.url != $scope.previous && $scope.url != null){	
+			$scope.previous = $scope.url;
 			$http({
 			  method: 'GET',
 			  url: $scope.url,
 			}).then(function successCallback(response) {
-				$scope.artImages = response.data.results;	
+				$scope.artImages = response.data.results;					
 				$scope.url = response.data.next;		
 				$.each($scope.artImages, function(index, item){
 					if((index+1)%3 == 0){
