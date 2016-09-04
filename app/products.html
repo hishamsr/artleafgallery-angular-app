@@ -1,10 +1,10 @@
 <section ng-controller="ProductsController"> 
 		<div class="container product_list">
 			<h1 align="center"> {{product.name}} </h1>		
-			<div class="row bottommargin-sm" ng-repeat="page in pages">
-				<div class="col-sm-4" ng-repeat="artImage in page.col1">
-					<div class="white-background bottompadding-xs">						
-						<img class="bottommargin-xs" src="{{artImage.image}}" />
+			<div class="row bottommargin-sm" loadmoredata>
+				<div class="col-sm-4">
+					<div class="white-background bottompadding-xs" ng-repeat="artImage in page.col1">						
+						<img class="bottommargin-xs" ng-src="{{artImage.image}}" />
 						<div class="name_desc">
 							<h1> {{artImage.story}} </h1>							
 							<p> By {{artImage.artist.user.first_name}} </p>
@@ -13,9 +13,9 @@
 						</div>
 					</div>
 				</div>
-				<div class="col-sm-4" ng-repeat="artImage in page.col2">
-					<div class="white-background bottompadding-xs">						
-						<img class="bottommargin-xs" src="{{artImage.image}}" />
+				<div class="col-sm-4">
+					<div class="white-background bottompadding-xs" ng-repeat="artImage in page.col2">				
+						<img class="bottommargin-xs" ng-src="{{artImage.image}}" />
 						<div class="name_desc">
 							<h1> {{artImage.story}} </h1>							
 							<p> By {{artImage.artist.user.first_name}} </p>
@@ -24,9 +24,9 @@
 						</div>
 					</div>
 				</div>
-				<div class="col-sm-4" ng-repeat="artImage in page.col3">
-					<div class="white-background bottompadding-xs">						
-						<img class="bottommargin-xs" src="{{artImage.image}}" />
+				<div class="col-sm-4">
+					<div class="white-background bottompadding-xs" ng-repeat="artImage in page.col3">				
+						<img class="bottommargin-xs" ng-src="{{artImage.image}}" />
 						<div class="name_desc">
 							<h1> {{artImage.story}} </h1>							
 							<p> By {{artImage.artist.user.first_name}} </p>

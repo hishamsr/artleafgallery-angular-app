@@ -32,7 +32,12 @@ app.controller("ProductsController", function($scope,$http, productService, $sta
 		var url = appConstants.apiUrl+'api/artworks/'+$scope.productId+"/";
 	}
 	$scope.artImages_slice = [];
-	$scope.pages = [];
+	$scope.page_number = 1;
+	$scope.page = {
+		'col1': [],
+		'col2': [],
+		'col3': []
+	};
 	
 	$scope.getProductDetails = function(){
 		$http({
@@ -48,25 +53,20 @@ app.controller("ProductsController", function($scope,$http, productService, $sta
 	$scope.getArtImages = function(){
 		$http({
 		  method: 'GET',
-		  url: appConstants.apiUrl+'api/artworks/'+$scope.productId+"/"
+		  url: url+"?page="+ $scope.page_number,
 		}).then(function successCallback(response) {
 			console.log(response.data)
-			$scope.artImages = response.data;
-			var page = {
-				'col1': [],
-				'col2': [],
-				'col3': []
-			};
+			$scope.artImages = response.data.results;			
 			$.each($scope.artImages, function(index, item){
 				if((index+2)%2 == 0){
-					page['col2'].push(item);
+					$scope.page['col2'].push(item);
 				} else if((index+3)%3 == 0){
-					page['col3'].push(item);
+					$scope.page['col3'].push(item);
 				} else {
-					page['col1'].push(item);
+					$scope.page['col1'].push(item);
 				}
 			});
-			$scope.pages.push(page);
+			$scope.page_number = $scope.page_number + 1;
 		}, function errorCallback(response) {
 		    // called asynchronously if an error occurs
 		    // or server returns response with an error status.

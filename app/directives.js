@@ -131,3 +131,38 @@ app.directive("repeatEnd", [function(){
         }
     };
 }]);
+
+app.directive("loadmoredata", [function() {
+  console.log('here');
+        return {
+            restrict: 'A',
+            link: function($scope, element, attrs, ctrl) {
+                var raw = element[0];
+                console.log(raw);
+                element.scroll(function() {
+                    if (raw.scrollTop + raw.offsetHeight >= raw.scrollHeight){
+                        $scope.$apply("getArtImages()");
+                    }
+                });
+            }
+        }; 
+}]);
+
+/*app.directive("loadmoredata", ['$document' ,function($document) {
+  console.log('here');
+        return {
+            restrict: 'A',
+            link: function($scope, element, attrs, ctrl) {
+                var raw = element[0];
+                console.log(raw, element);
+                $document.bind('scroll', function() {
+                    if (raw.scrollTop + raw.offsetHeight >= raw.scrollHeight){
+                        $scope.$apply("getArtImages()");
+                    }
+                });
+            }
+        };
+ 
+}])
+
+*/

@@ -39,7 +39,7 @@
 							<h1 class="product_name"> {{product.name}} </h1>
 							<p> {{product.description| limitTo: 100 }}{{product.description.length > 100 ? '...' : ''}} </p>
 						</div>
-						<img class="bottommargin-xs" src="{{product.homepage_list_icon}}" />
+						<img class="bottommargin-xs" ng-src="{{product.homepage_list_icon}}" />
 						<p align="right" class="read_more"> <a ui-sref="products({productId:{{product.id}}})">Read more ...<i class="fa fa-external-link"></i></a></p>
 					</div>					
 				</div>
