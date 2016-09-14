@@ -87,8 +87,8 @@ h1 {
 	margin-left: 50px !important;
 }
 
-.borderright {
-	border-right: 1px solid #ccc;
+.borderleft{
+	border-left: 1px solid #ccc;
 }
 
 .white-background {
@@ -255,7 +255,9 @@ footer .social_icons i {
 footer .underline {
 	border-bottom: 2px solid red;
 }
-
+.logo {
+	margin-right: 73px;
+}
 
 /* Menu overrides */
 
@@ -290,7 +292,6 @@ footer .underline {
 	text-decoration: none;
 }
 .left_arrow {
-	position: absolute;
 	left: 0px;
 	z-index: 10;
 }
@@ -299,4 +300,43 @@ footer .underline {
 	right: 0px;
 	z-index: 10;
 }
+.menu {
+	margin-top: 13px;
+}
 /* Menu overrides end */
+
+/* Product page styles start */
+.category_menu li a {
+	color: #000;
+	cursor: pointer;
+}
+.category_menu li a:hover {
+	color: #FFF;
+	cursor: pointer;
+}
+.categorymenu_colorgrid {
+	padding: 20px 0px;
+}
+
+.color-grid li {
+	float: left;
+	list-style: none;
+	display: block;
+	margin: 2px;
+}
+.color-grid a {
+	width: 13px;
+	height: 13px;
+	cursor: pointer;
+	display: block;
+}
+.add-to-cart-btn {
+	background-color: #C31313;
+	float: right;
+	border: none;
+	color: #FFF;
+	font-weight: bold;
+	padding: 5px 10px;
+}
+/* Product page styles end */
+
