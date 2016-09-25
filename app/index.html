@@ -51,9 +51,15 @@
 	<script src="components/version/version.js"></script>
 	<script src="components/version/version-directive.js"></script>
 	<script src="components/version/interpolate-filter.js"></script>
+	<script src="bower_components/angular-dynamic-locale/tmhDynamicLocale.min.js"></script>
 	<script type="text/javascript">
 	    angular.element(document.getElementsByTagName('head')).append(angular.element('<base href="' + window.location.pathname + '" />'));
-	    
+	    var locale = JSON.parse(localStorage.getItem('locale'));
+	    console.log("hi",locale)
+		if (locale) {
+		    document.write('<script src="bower_components/angular-i18n/angular-locale_'+locale+'.js"><\/script>');
+		}
 	  </script>
+
 </body>
 </html>

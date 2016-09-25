@@ -56,6 +56,9 @@ h1 {
 .bottompadding-xs {
 	padding-bottom: 10px !important;
 }
+.noborder {
+	border: none !important;
+}
 .margin {
 	margin: 0px !important;
 }
@@ -170,7 +173,7 @@ ul.nav li.dropdown:hover > ul.dropdown-menu {
 }
 
 .name_desc {
-	padding: 1px 10px 10px 10px;
+	padding: 1px 10px 40px 10px;
 }
 
 .banner {
@@ -266,7 +269,7 @@ footer .underline {
     border-color: none !important; 
 }
 .nav>li>a {
-	padding: 10px !important;
+	padding: 10px 20px 10px 0px !important;
 	font-weight: bold !important;
 	background: none !important;
 }
@@ -306,9 +309,17 @@ footer .underline {
 /* Menu overrides end */
 
 /* Product page styles start */
+.category_menu li  {
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
 .category_menu li a {
-	color: #000;
-	cursor: pointer;
+	color: gray;
+    cursor: pointer;
+    border-right: 1px solid #CCC;
+    margin-left: 10px;
+    height: 20px;
+    line-height: 4px;
 }
 .category_menu li a:hover {
 	color: #FFF;
@@ -317,7 +328,10 @@ footer .underline {
 .categorymenu_colorgrid {
 	padding: 20px 0px;
 }
-
+.color-grid {
+	float: right;
+	margin-top: 10px;
+}
 .color-grid li {
 	float: left;
 	list-style: none;
@@ -325,8 +339,8 @@ footer .underline {
 	margin: 2px;
 }
 .color-grid a {
-	width: 13px;
-	height: 13px;
+	width: 15px;
+	height: 15px;
 	cursor: pointer;
 	display: block;
 }
@@ -337,6 +351,20 @@ footer .underline {
 	color: #FFF;
 	font-weight: bold;
 	padding: 5px 10px;
+}
+.product_list img {
+	width: 100%;
+}
+.product_list {
+	padding-top: 20px;
+}
+.category_menu_row {
+	box-shadow: 0px 1px 1px #888888;
+    margin: 15px 0px 0px;
+}
+.categorymenu_colorgrid p {
+	font-size: 14px;
+	font-weight: bold;
 }
 /* Product page styles end */
 

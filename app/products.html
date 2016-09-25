@@ -1,49 +1,55 @@
 <section ng-controller="ProductsController"> 
 		<div class="container categorymenu_colorgrid">
-			<div class="row">
-				<div class="category_menu col-xs-6">
-					<ul class="nav navbar-nav category_menu">
-						<li ng-repeat="category in product.categories"><a ui-sref="category({ productId:{{product.id}}, categoryId:{{category.id}} })">{{category.name}}</a></li>
-					</ul>
-				</div>
-				<div class="color-grid col-xs-6">
-					<colorgrid></colorgrid>
-				</div>
+		<div class="row">
+			<div class="col-xs-12">
+				<h1> {{product.name}} </h1>		
+				<p> {{product.description}} </p>
 			</div>
+		</div>
+		<div class="row category_menu_row">
+			<div class="category_menu col-xs-8">
+				<ul class="nav navbar-nav category_menu">
+					<li ng-repeat="category in product.categories">
+						<a ui-sref="category({ productId:{{product.id}}, categoryId:{{category.id}} })" ng-class="{noborder: $last}">{{category.name}}</a>
+					</li>
+				</ul>
+			</div>
+			<div class="color-grid col-xs-4 nopadding">
+				<colorgrid></colorgrid>
+			</div>
+		</div>
 		</div>		
-		<div class="container product_list">
-			<h1> {{product.name}} </h1>		
-			<p> {{product.description}} </p>
+		<div class="container product_list noleftpadding norightpadding">			
 			<div class="row bottommargin-sm" loadmoredata>
 				<div class="col-sm-4">
-					<div class="white-background bottompadding-xs" ng-repeat="artImage in page.col1">				
+					<div class="white-background bottommargin-lg" ng-repeat="artImage in page.col1">				
 						<img class="bottommargin-xs" ng-src="{{artImage.image}}" />
 						<div class="name_desc">
 							<h4 class="text-danger"> {{artImage.story}} </h4>							
 							<p> By {{artImage.artist.user.first_name}} </p>
-							<p> <span>{{artImage.dimension}}</span> <span class="pull-right">{{artImage.price}}</span></p>
+							<p> <span>{{artImage.dimension}}</span> <span class="pull-right">{{artImage.price | currency}}</span></p>
 							<p> {{artImage.description}} <button class="add-to-cart-btn">ADD TO CART</button></p>
 						</div>
 					</div>
 				</div>
 				<div class="col-sm-4">
-					<div class="white-background bottompadding-xs" ng-repeat="artImage in page.col2">				
+					<div class="white-background bottommargin-lg" ng-repeat="artImage in page.col2">				
 						<img class="bottommargin-xs" ng-src="{{artImage.image}}" />
 						<div class="name_desc">
 							<h4 class="text-danger"> {{artImage.story}} </h4>							
 							<p> By {{artImage.artist.user.first_name}} </p>
-							<p> <span>{{artImage.dimension}}</span> <span class="pull-right">{{artImage.price}}</span></p>
+							<p> <span>{{artImage.dimension}}</span> <span class="pull-right">{{artImage.price | currency}}</span></p>
 							<p> {{artImage.description}} <button class="add-to-cart-btn">ADD TO CART</button></p>
 						</div>
 					</div>
 				</div>
 				<div class="col-sm-4">
-					<div class="white-background bottompadding-xs" ng-repeat="artImage in page.col3">				
+					<div class="white-background bottommargin-lg" ng-repeat="artImage in page.col3">				
 						<img class="bottommargin-xs" ng-src="{{artImage.image}}" />
 						<div class="name_desc">
 							<h4 class="text-danger"> {{artImage.story}} </h4>							
 							<p> By {{artImage.artist.user.first_name}} </p>
-							<p> <span>{{artImage.dimension}}</span> <span class="pull-right">{{artImage.price}}</span></p>
+							<p> <span>{{artImage.dimension}}</span> <span class="pull-right">{{artImage.price | currency}}</span></p>
 							<p> {{artImage.description}} <button class="add-to-cart-btn">ADD TO CART</button></p>
 						</div>
 					</div>

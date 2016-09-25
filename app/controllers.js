@@ -23,7 +23,8 @@ app.controller("MenuController", function($scope,$http, productService){
  
     $scope.getProducts();
 });
-app.controller("ProductsController", function($scope,$http, productService, $stateParams, appConstants){
+app.controller("ProductsController", ['$scope', '$http', 'productService', '$stateParams', 'appConstants', 'tmhDynamicLocale', function($scope,$http, productService, $stateParams, appConstants, tmhDynamicLocale){
+	tmhDynamicLocale.set('en');
 	$scope.productId = $stateParams.productId;
 	$scope.categoryId = $stateParams.categoryId;
 	if($scope.categoryId) {
@@ -125,7 +126,7 @@ app.controller("ProductsController", function($scope,$http, productService, $sta
 	$scope.getArtImages();
 	$scope.getProductDetails();
 	
-});
+}]);
 
 app.controller("HomeController", function($scope,$http, productService, appConstants){
 	$scope.menu_products = [];

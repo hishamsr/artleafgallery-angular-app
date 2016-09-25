@@ -3,16 +3,16 @@
 // Declare app level module which depends on views, and components
 var app = angular.module('artleafgallery', [
   'ngRoute',
-  'ui.router'
-  
+  'ui.router',
+  'tmh.dynamicLocale'  
 ]).constant('appConstants', {
     appName: 'Artleaf Gallery',
     appVersion: 1.0,
     apiUrl: 'http://localhost:8001/'
 });
 
-app.config(['$httpProvider', '$stateProvider', '$urlRouterProvider', function($httpProvider, $stateProvider, $urlRouterProvider) {
-	$urlRouterProvider.otherwise('/home');
+app.config(['$httpProvider', '$stateProvider', '$urlRouterProvider', 'tmhDynamicLocaleProvider', function($httpProvider, $stateProvider, $urlRouterProvider, tmhDynamicLocaleProvider) {
+	  $urlRouterProvider.otherwise('/home');
     $stateProvider
     .state('home',{
        url:"/home",
@@ -32,5 +32,9 @@ app.config(['$httpProvider', '$stateProvider', '$urlRouterProvider', function($h
         url: '/frames',
         templateUrl: '/app/frames.html',
         //controller: 'ProductsController'
-    });    
+    });
+    tmhDynamicLocaleProvider.localeLocationPattern('bower_components/angular-i18n/angular-locale_{{locale}}.js');
+    
 }]);
+
+
